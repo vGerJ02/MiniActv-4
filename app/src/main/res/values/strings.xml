@@ -3,7 +3,10 @@
     <string name="creaserv">Servicio creado</string>
     <string name="finaserv">Servicio finalizado</string>
     <string name="iniserv">Servicio iniciado</string>
-    <string name="botoIn">Iniciar</string>
+    <string name="botoSound">Reproducir Sonido</string>
     <string name="botoFin">Detener</string>
     <string name="tituloAct">Utilización de Servicios</string>
+    <string name="botoSong">Reproducir Cancion</string>
+    <string name="soundtype">Seleccionado Sonido</string>
+    <string name="songtype">Seleccionado canción</string>
 </resources>

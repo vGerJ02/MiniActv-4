@@ -18,13 +18,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
         <Button
-            android:text="@string/botoIn"
-            android:id="@+id/btnIn"
+            android:text="@string/botoSound"
+            android:id="@+id/btnSound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+        </Button>
+
+        <Button
+            android:id="@+id/btnSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/botoSong">
         </Button>
 
         <Button

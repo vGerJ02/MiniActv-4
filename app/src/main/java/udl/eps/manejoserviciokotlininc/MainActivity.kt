@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import udl.eps.manejoserviciokotlininc.databinding.ActivityMainBinding
 
 
@@ -16,7 +17,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnIn.setOnClickListener(this)
+        binding.btnSound.setOnClickListener(this)
+        binding.btnSong.setOnClickListener(this)
         binding.btnFin.setOnClickListener(this)
 
     }
@@ -24,7 +26,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(src: View) {
         val intent = Intent(this, ElServicio::class.java)
         when (src.id) {
-            R.id.btnIn -> startService(intent)
+            R.id.btnSound -> {
+                intent.putExtra("mp3", "sound")
+                Toast.makeText(this, R.string.soundtype, Toast.LENGTH_SHORT).show()
+                startService(intent)
+            }
+
+            R.id.btnSong -> {
+                intent.putExtra("mp3", "song")
+                Toast.makeText(this, R.string.songtype, Toast.LENGTH_SHORT).show()
+                startService(intent)
+            }
+
             R.id.btnFin -> stopService(intent)
         }
     }

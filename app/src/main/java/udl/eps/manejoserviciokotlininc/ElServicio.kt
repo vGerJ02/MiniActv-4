@@ -6,9 +6,10 @@ import android.media.MediaPlayer
 import android.os.IBinder
 import android.widget.Toast
 
-class ElServicio: Service() {
+class ElServicio : Service() {
 
-    private var player: MediaPlayer? = null
+    private var soundplayer: MediaPlayer? = null
+    private var songplayer: MediaPlayer? = null
 
     override fun onBind(p0: Intent?): IBinder? {
         TODO("Not yet implemented")
@@ -16,21 +17,35 @@ class ElServicio: Service() {
 
     override fun onCreate() {
         super.onCreate()
-        Toast.makeText(this, R.string.creaserv, Toast.LENGTH_LONG).show()
-        player = MediaPlayer.create(applicationContext, R.raw.train)
-        player!!.isLooping = true
+        Toast.makeText(this, R.string.creaserv, Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
-        Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
-        player!!.start()
+
+        val type = intent!!.getStringExtra("mp3")
+        if (type == "sound") {
+            Toast.makeText(this, "Servicio sonido activado", Toast.LENGTH_SHORT).show()
+            soundplayer = MediaPlayer.create(applicationContext, R.raw.train)
+            soundplayer!!.isLooping = true
+            soundplayer!!.start()
+        } else if (type == "song") {
+            Toast.makeText(this, "Servicio cancion activado", Toast.LENGTH_SHORT).show()
+            songplayer = MediaPlayer.create(applicationContext, R.raw.song)
+            songplayer!!.isLooping = true
+            songplayer!!.start()
+        }
+
         return startId
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show()
-        player!!.stop()
+        Toast.makeText(this, R.string.finaserv, Toast.LENGTH_SHORT).show()
+        if(soundplayer?.isPlaying == true)
+            soundplayer!!.stop()
+        if(songplayer?.isPlaying == true)
+            songplayer!!.stop()
     }
 }
