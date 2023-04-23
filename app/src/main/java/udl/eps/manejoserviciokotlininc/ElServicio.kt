@@ -25,13 +25,13 @@ class ElServicio : Service() {
         super.onStartCommand(intent, flags, startId)
 
         val type = intent!!.getStringExtra("mp3")
-        if (type == "sound") {
-            Toast.makeText(this, "Servicio sonido activado", Toast.LENGTH_SHORT).show()
+        if (type == "playSound") {
+            Toast.makeText(this, R.string.serviceSound, Toast.LENGTH_SHORT).show()
             soundplayer = MediaPlayer.create(applicationContext, R.raw.train)
             soundplayer!!.isLooping = true
             soundplayer!!.start()
-        } else if (type == "song") {
-            Toast.makeText(this, "Servicio cancion activado", Toast.LENGTH_SHORT).show()
+        } else if (type == "playSong") {
+            Toast.makeText(this, R.string.serviceSong, Toast.LENGTH_SHORT).show()
             songplayer = MediaPlayer.create(applicationContext, R.raw.song)
             songplayer!!.isLooping = true
             songplayer!!.start()
@@ -43,9 +43,9 @@ class ElServicio : Service() {
     override fun onDestroy() {
         super.onDestroy()
         Toast.makeText(this, R.string.finaserv, Toast.LENGTH_SHORT).show()
-        if(soundplayer?.isPlaying == true)
+        if (soundplayer?.isPlaying == true)
             soundplayer!!.stop()
-        if(songplayer?.isPlaying == true)
+        if (songplayer?.isPlaying == true)
             songplayer!!.stop()
     }
 }

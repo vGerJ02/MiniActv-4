@@ -27,12 +27,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, soundsReceiver::class.java)
         when (src.id) {
             R.id.btnSound -> {
-                intent.putExtra("mp3", "sound")
+                intent.putExtra("mp3", "playSound")
                 Toast.makeText(this, R.string.soundtype, Toast.LENGTH_SHORT).show()
             }
 
             R.id.btnSong -> {
-                intent.putExtra("mp3", "song")
+                intent.putExtra("mp3", "playSong")
                 Toast.makeText(this, R.string.songtype, Toast.LENGTH_SHORT).show()
             }
 

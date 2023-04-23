@@ -9,4 +9,9 @@
     <string name="botoSong">Reproducir Cancion</string>
     <string name="soundtype">Seleccionado Sonido</string>
     <string name="songtype">Seleccionado canción</string>
+    <string name="serviceSound">Servicio sonido activado</string>
+    <string name="serviceSong">Servicio cancion activado</string>
+    <string name="broadcastSound">BroadcastReceiver - Inicio reproducción sonido</string>
+    <string name="broadcastSong">BroadcastReceiver - Inicio reproducción cancion</string>
+    <string name="broadcastStop">BroadcastReceiver - Detencion reproduccion</string>
 </resources>

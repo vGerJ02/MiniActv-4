@@ -13,27 +13,15 @@ class soundsReceiver : BroadcastReceiver() {
         println(type)
 
         if (type == "stop") {
-            Toast.makeText(
-                context,
-                "BroadcastReceiver - Detencion reproduccion",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(context, R.string.broadcastStop, Toast.LENGTH_SHORT).show()
             context?.stopService(serviceInt)
         }
 
-        if (type == "sound") {
-            Toast.makeText(
-                context,
-                "BroadcastReceiver - Inicio reproducción sonido",
-                Toast.LENGTH_SHORT
-            ).show()
+        if (type == "playSound") {
+            Toast.makeText(context, R.string.broadcastSound, Toast.LENGTH_SHORT).show()
             serviceInt.putExtra("mp3", type)
-        } else if (type == "song") {
-            Toast.makeText(
-                context,
-                "BroadcastReceiver - Inicio reproducción cancion",
-                Toast.LENGTH_SHORT
-            ).show()
+        } else if (type == "playSong") {
+            Toast.makeText(context, R.string.broadcastSong, Toast.LENGTH_SHORT).show()
             serviceInt.putExtra("mp3", type)
         }
 
